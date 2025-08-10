@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Bus Pirate Console</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Web Bus Pirate Console</h1>
+
+    <div class="connection-area">
+        <button id="connect-button">Connect</button>
+        <div id="status">Disconnected</div>
+    </div>
+
+    <div class="main-container">
+        <div class="tabs">
+            <button class="tab-link active" onclick="openMode(event, 'Terminal')">Terminal</button>
+            <button class="tab-link" onclick="openMode(event, 'I2C')">I2C</button>
+            <button class="tab-link" onclick="openMode(event, 'SPI')">SPI</button>
+            <button class="tab-link" onclick="openMode(event, 'UART')">UART</button>
+            <button class="tab-link" onclick="openMode(event, '1-WIRE')">1-WIRE</button>
+            <button class="tab-link" onclick="openMode(event, '2-WIRE')">2-WIRE</button>
+            <button class="tab-link" onclick="openMode(event, '3-WIRE')">3-WIRE</button>
+        </div>
+
+        <div id="Terminal" class="tab-content" style="display: block;">
+            <div id="terminal-window" class="terminal"></div>
+            <div class="terminal-input">
+                <input type="text" id="command-input" placeholder="Enter command">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+
+        <div id="I2C" class="tab-content">
+            <h2>I2C Mode</h2>
+            <button id="i2c-mode-button">Enter I2C Mode</button>
+            <button id="i2c-scanner-button">I2C Scanner</button>
+            <div id="i2c-scan-results"></div>
+        </div>
+
+        <div id="SPI" class="tab-content">
+            <h2>SPI Mode</h2>
+            <button id="spi-mode-button">Enter SPI Mode</button>
+        </div>
+
+        <div id="UART" class="tab-content">
+            <h2>UART Mode</h2>
+            <button id="uart-mode-button">Enter UART Mode</button>
+        </div>
+
+        <div id="1-WIRE" class="tab-content">
+            <h2>1-WIRE Mode</h2>
+            <button id="1-wire-mode-button">Enter 1-WIRE Mode</button>
+        </div>
+
+        <div id="2-WIRE" class="tab-content">
+            <h2>2-WIRE Mode</h2>
+            <button id="2-wire-mode-button">Enter 2-WIRE Mode</button>
+        </div>
+
+        <div id="3-WIRE" class="tab-content">
+            <h2>3-WIRE Mode</h2>
+            <button id="3-wire-mode-button">Enter 3-WIRE Mode</button>
+        </div>
+
+        <div id="pin-status" class="pin-status">
+            <h2>Pin Status</h2>
+            <!-- Pin status will be displayed here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
