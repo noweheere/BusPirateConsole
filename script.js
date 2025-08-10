@@ -43,7 +43,15 @@ class BPPort {
 
         } catch (error) {
             console.error('There was an error opening the serial port:', error);
-            document.getElementById('status').textContent = `Error: ${error.message}`;
+            let errorMessage = `Error: ${error.message}`;
+            if (error.name === 'NotFoundError') {
+                errorMessage = "Connection cancelled: You must select a serial port from the dialog to connect to the Bus Pirate.";
+            } else if (error.name === 'InvalidStateError') {
+                errorMessage = "Connection failed: The port is already in use. Make sure no other application is connected to the Bus Pirate.";
+            } else {
+                errorMessage = `An unexpected error occurred: ${error.message}. If you are on Windows, you may need to install a driver for the Bus Pirate's serial chip (FTDI). You can find the driver on the FTDI website.`;
+            }
+            document.getElementById('status').textContent = errorMessage;
         }
     }
 
