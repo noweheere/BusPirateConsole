@@ -23,3 +23,10 @@ This application relies on the WebSerial API, which is a relatively new technolo
 *   Opera (version 65 and later)
 
 Please make sure you are using a compatible browser.
+
+## Drivers
+
+The Bus Pirate uses an FTDI chip for USB-to-serial communication. On some systems, especially Windows, you may need to install a driver for the device to be recognized.
+
+You can find the latest VCP (Virtual COM Port) drivers on the official FTDI website:
+[https://ftdichip.com/drivers/vcp-drivers/](https://ftdichip.com/drivers/vcp-drivers/)

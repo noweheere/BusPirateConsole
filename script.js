@@ -49,9 +49,9 @@ class BPPort {
             } else if (error.name === 'InvalidStateError') {
                 errorMessage = "Connection failed: The port is already in use. Make sure no other application is connected to the Bus Pirate.";
             } else {
-                errorMessage = `An unexpected error occurred: ${error.message}. If you are on Windows, you may need to install a driver for the Bus Pirate's serial chip (FTDI). You can find the driver on the FTDI website.`;
+                errorMessage = `An unexpected error occurred: ${error.message}. If you are on Windows, you may need to install a driver for the Bus Pirate's serial chip (FTDI). You can find the latest drivers at <a href="https://ftdichip.com/drivers/vcp-drivers/" target="_blank">https://ftdichip.com/drivers/vcp-drivers/</a>.`;
             }
-            document.getElementById('status').textContent = errorMessage;
+            document.getElementById('status').innerHTML = errorMessage;
         }
     }
 
