@@ -26,7 +26,7 @@ Please make sure you are using a compatible browser.
 
 ## Drivers
 
-The Bus Pirate uses an FTDI chip for USB-to-serial communication. On some systems, especially Windows, you may need to install a driver for the device to be recognized.
+The Bus Pirate uses an FTDI FT232R chip for USB-to-serial communication. On some systems, especially Windows, you may need to install a driver for the device to be recognized. When connected, the device should appear in your system's device manager as "FT232R USB UART".
 
 You can find the latest VCP (Virtual COM Port) drivers on the official FTDI website:
 [https://ftdichip.com/drivers/vcp-drivers/](https://ftdichip.com/drivers/vcp-drivers/)

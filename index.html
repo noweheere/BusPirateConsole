@@ -23,6 +23,7 @@
             <button class="tab-link" onclick="openMode(event, '1-WIRE')">1-WIRE</button>
             <button class="tab-link" onclick="openMode(event, '2-WIRE')">2-WIRE</button>
             <button class="tab-link" onclick="openMode(event, '3-WIRE')">3-WIRE</button>
+            <button class="tab-link" onclick="openMode(event, 'Help')">Help</button>
         </div>
 
         <div id="Terminal" class="tab-content" style="display: block;">
@@ -65,12 +66,51 @@
             <button id="3-wire-mode-button">Enter 3-WIRE Mode</button>
         </div>
 
+        <div id="Help" class="tab-content">
+            <div id="readme-content"></div>
+        </div>
+
         <div id="pin-status" class="pin-status">
             <h2>Pin Status</h2>
             <!-- Pin status will be displayed here -->
         </div>
     </div>
 
+    <div id="readme-source" style="display: none;">
+# Web Bus Pirate Console
+
+This is a web-based console for the Bus Pirate, implemented using the WebSerial API. It is a modern, browser-based alternative to the original C# application.
+
+## How to Run
+
+1.  Clone this repository to your local machine.
+2.  Open the `index.html` file in a web browser that supports the WebSerial API (e.g., Google Chrome, Microsoft Edge).
+3.  You do not need to run a local web server. You can open the `index.html` file directly from your file system.
+
+## How to Use
+
+1.  Click the "Connect" button. This will open a dialog where you can select the serial port connected to your Bus Pirate.
+2.  Once connected, the status will change to "Connected", and you can start sending commands to the Bus Pirate.
+3.  You can use the terminal to send commands directly, or use the controls in the different mode tabs.
+
+## Browser Compatibility
+
+This application relies on the WebSerial API, which is a relatively new technology. As of now, it is supported in the following browsers:
+
+*   Google Chrome (version 78 and later)
+*   Microsoft Edge (version 78 and later)
+*   Opera (version 65 and later)
+
+Please make sure you are using a compatible browser.
+
+## Drivers
+
+The Bus Pirate uses an FTDI FT232R chip for USB-to-serial communication. On some systems, especially Windows, you may need to install a driver for the device to be recognized. When connected, the device should appear in your system's device manager as "FT232R USB UART".
+
+You can find the latest VCP (Virtual COM Port) drivers on the official FTDI website:
+[https://ftdichip.com/drivers/vcp-drivers/](https://ftdichip.com/drivers/vcp-drivers/)
+    </div>
+    <script src="marked.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

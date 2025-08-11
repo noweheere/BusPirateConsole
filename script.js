@@ -148,6 +148,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const busPirateCommands = [
+        'm', 'i', 'v', 'p', 'w', 'a', 'A', '@', 'c', 'C', '#', '$', 'o', 'l', 'L', 'g', 'e',
+        '(1)',
+    ];
+
+    commandInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            const currentInput = commandInput.value;
+            const suggestions = busPirateCommands.filter(cmd => cmd.startsWith(currentInput));
+
+            if (suggestions.length === 1) {
+                commandInput.value = suggestions[0] + ' ';
+            } else if (suggestions.length > 1) {
+                const terminalWindow = document.getElementById('terminal-window');
+                terminalWindow.textContent += '\n' + suggestions.join('  ') + '\n';
+                terminalWindow.scrollTop = terminalWindow.scrollHeight;
+            }
+        }
+    });
+
     commandInput.addEventListener('keypress', async (e) => {
         if (e.key === 'Enter') {
             sendButton.click();
@@ -181,4 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
     threeWireModeButton.addEventListener('click', async () => {
         await bpPort.write('m7');
     });
+
+    // Load and render README.md from the hidden div
+    const readmeSource = document.getElementById('readme-source').textContent;
+    document.getElementById('readme-content').innerHTML = marked.parse(readmeSource);
 });
